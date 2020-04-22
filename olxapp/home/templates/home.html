@@ -10,15 +10,18 @@
 				<div class="container">
 					
 				{% for category in all_category %}
-					{% if category.icon %}
-						{{ category.icon.as_html }}
-					{% endif %}
+					
 									
 					<div class="col-md-2 focus-grid">
 						<a href="categories.html">
 							<div class="focus-border">
 								<div class="focus-layout">
-									<div class="focus-image"><i class="fa fa-mobile"></i></div>
+									<div class="focus-image">
+										<i>
+												{{ category.icon.as_html }}
+										
+										</i>
+									</div>
 									<h4 class="clrchg">{{category}}</h4>
 								</div>
 							</div>
