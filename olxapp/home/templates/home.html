@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load fontawesome_5 %}
 
 {% block body %}
 	
@@ -9,18 +10,17 @@
 			<div class="categories">
 				<div class="container">
 					
-				{% for category in all_category %}
-					
-									
+				{% for category in all_category.all %}
+						
 					<div class="col-md-2 focus-grid">
 						<a href="categories.html">
 							<div class="focus-border">
 								<div class="focus-layout">
+									
 									<div class="focus-image">
-										<i>
-												{{ category.icon.as_html }}
-										
-										</i>
+										{% if category.icon %}
+											{{ category.icon.as_html }}
+										{% endif %}
 									</div>
 									<h4 class="clrchg">{{category}}</h4>
 								</div>
