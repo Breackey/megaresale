@@ -150,6 +150,5 @@ FONTAWESOME_5_CSS_ADMIN = 'fontawesome_5/css/django-fontawesome.css' or 'fontawe
 default: None
 FONTAWESOME_5_ICON_CLASS = 'default' or 'semantic_ui' 
 default: 'default'
-FONTAWESOME_5_PREFIX = 'custom_prefix'
-default: 'fa'
+FONTAWESOME_5_PREFIX = 'fa'
 

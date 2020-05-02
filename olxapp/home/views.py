@@ -3,8 +3,8 @@ from product.models import Product , Category
 # Create your views here.
 
 def home(request):
-    
-    all_category = Category.objects.all() 
+
+    all_category = Category.objects.all()
     products = Product.objects.all()
 
     template = 'home.html'
