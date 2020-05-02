@@ -5,24 +5,17 @@
 {% block body %}
 	<!-- Categories -->
 	<!--Vertical Tab-->
+
 	<div class="categories-section main-grid-border">
 		<div class="container">
 			<h2 class="head">Main Categories</h2>
+			{% for category in all_category.all %}
+
 			<div class="category-list">
 				<div id="parentVerticalTab">
 					<ul class="resp-tabs-list hor_1">
-						<li>Mobiles</li>
-						<li>Electronics & Appliances</li>
-						<li>Cars</li>
-						<li>Bikes</li>
-						<li>Furniture</li>
-						<li>Pets</li>
-						<li>Books, Sports & Hobbies</li>
-						<li>Fashion</li>
-						<li>Kids</li>
-						<li>Services</li>
-						<li>Jobs</li>
-						<li>Real Estate</li>
+						<li>{{category.name}}</li>
+						{% endfor %}
 						<a href="{% url 'products:product_list' %}">All Ads</a>
 					</ul>
 					<div class="resp-tabs-container hor_1">
@@ -30,7 +23,7 @@
 						<div>
 							<div class="category">
 								<div class="category-img">
-									<img src="images/cat1.png" title="image" alt="" />
+									<img src="{{image.image.url}}" title="image" alt="" />
 								</div>
 								<div class="category-info">
 									<h4>Mobiles</h4>

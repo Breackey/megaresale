@@ -1,11 +1,14 @@
 from django.urls import path
 from . views import register
+from . import views
 
 
 app_name = 'accounts'
 
 urlpatterns = [
-    path('register/' , register , name='register') , 
+    path('register/' , views.register , name='register') , 
+    path('' , views.user_login , name='user_login') , 
+
     # path('password_change/' , auth_views.PasswordChangeView.as_view() , name='password_change') , 
     # path('password_change/done/' , auth_views.PasswordChangeDoneView.as_view() , name='password_change_done') , 
     # path('password_reset/' , auth_views.PasswordResetView.as_view() , name='password_reset') , 
