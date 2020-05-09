@@ -4,9 +4,11 @@ from django.contrib.auth import authenticate, login
 from .forms import LoginForm
 from .forms import UserForm
 
+
+
 # Create your views here.
 
-def user_login(request):
+""" def user_login(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
         if form.is_valid():
@@ -26,8 +28,8 @@ def user_login(request):
     else:
         form = LoginForm()
     return render(request, 'registration/login.html', {'form': form})
-
-def register(request):
+ """
+""" def register(request):
     if request.method == 'POST':
         user_form = UserForm(data=request.POST)
         if user_form.is_valid():
@@ -40,3 +42,5 @@ def register(request):
     context = {'user_form' : user_form}
 
     return render(request , 'registration/register.html' , context)
+ """
+
