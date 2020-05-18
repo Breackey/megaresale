@@ -85,9 +85,36 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="logo">
 				<a href="index.html"><span>Re</span>sale</a>
 			</div>
+			{% if request.user.is_authenticated %}
 			
+			<ul class="menu">
+				<li {% if section == "dashboard" %}class="selected" {% endif %}>
+					<a href="#">My dashboard</a>
+				</li>
+				<li {% if section == "images" %}class="selected" {% endif %}>
+					<a href="#">Images</a>
+				</li>
+				<li {% if section == "people" %}class="selected" {% endif %}>
+					<a href="#">People</a>
+				</li>
+			</ul>
+			{% endif %}
+			<div class="header-right">
+
+				<span class="user">
+					{% if request.user.is_authenticated %}
+					Hello {{ user }},
+					<a href="{% url 'logout' %}">Logout</a>
+					{% else %}
+					<div class="header-right">
+						<a class="account" href="{% url 'login' %}">My Account</a>
+					</div>
+					{% endif %}
+				</span>
 			</div>
 		</div>
+	</div>
+	
 	</div>
 
 

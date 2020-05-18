@@ -30,7 +30,7 @@
 								<span class="checkbox1">
 									 <label class="checkbox"><input type="checkbox" name="checkbox" checked="">Forgot Password ?</label>
 								</span>
-								<p><a href="#">Click Here</a> </p>
+								<p><a href="{% url 'password_reset' %}">Click Here</a> </p>
 								<div class="clearfix"> </div>
 							</div>
 
@@ -48,11 +48,12 @@
 							</form>
 
 						</div>
+						
 						<div class="new_people">
 							<h2>For New People</h2>
 							<p>Having hands on experience in creating innovative designs,I do offer design 
 								solutions which harness.</p>
-							<a href="register.html">Register Now!</a>
+							<a href="{% url 'accounts:register' %}">Register Now!</a>
 						</div>
 					</div>
 				</div>

@@ -93,9 +93,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<a href="index.html"><span>Re</span>sale</a>
 			</div>
 			{% if request.user.is_authenticated %}
+			
 			<ul class="menu">
 				<li {% if section == "dashboard" %}class="selected" {% endif %}>
-					<a href=" #">My dashboard</a>
+					<a href="#">My dashboard</a>
 				</li>
 				<li {% if section == "images" %}class="selected" {% endif %}>
 					<a href="#">Images</a>

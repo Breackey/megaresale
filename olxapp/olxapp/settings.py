@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'home',
     'fontawesome_5',
     'django_forms_bootstrap',
+    'crispy_forms',
+
 
 ]
 
