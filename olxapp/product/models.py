@@ -74,6 +74,24 @@ class Category(models.Model):
         return self.category_name
 
 
+class SubCategory(models.Model):
+    ## for product category
+    category = models.ForeignKey('Category' , on_delete=models.SET_NULL , null=True)
+    sub_category_name = models.CharField(max_length=50)
+    slug = models.SlugField(blank=True  , null=True)
+
+
+    def save(self , *args , **kwargs):
+        if not self.slug and self.sub_category_name :
+            self.slug = slugify(self.sub_category_name)
+        super(SubCategory , self).save(*args , **kwargs)
+
+    class Meta:
+        verbose_name = 'sub category'
+        verbose_name_plural = 'sub categories'
+
+    def __str__(self):
+        return self.sub_category_name
 
 class Brand(models.Model):
     ## for product brand

@@ -81,6 +81,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <body>
 	<div class="header">
+		{% if messages %}
+			<ul class="messages">
+				{% for message in messages %}
+					<li class="{{ message.tags }}">
+						{{ message|safe }}
+						<a href="#" class="close">x</a>
+					</li>
+				{% endfor %}
+			</ul>
+		{% endif %}
+		
 		<div class="container">
 			<div class="logo">
 				<a href="index.html"><span>Re</span>sale</a>

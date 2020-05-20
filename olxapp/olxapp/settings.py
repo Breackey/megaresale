@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'fontawesome_5',
     'django_forms_bootstrap',
     'crispy_forms',
+    #'social_django',
 
 
 ]
@@ -159,3 +160,7 @@ FONTAWESOME_5_ICON_CLASS = 'default' or 'semantic_ui'
 default: 'default'
 FONTAWESOME_5_PREFIX = 'fa'
 
+AUTHENTICATION_BACKENDS = [
+            'django.contrib.auth.backends.ModelBackend',
+            'accounts.authentication.EmailAuthBackend',
+]
