@@ -1,4 +1,4 @@
-#!C:\olx\env\Scripts\python.exe
+#!C:\megaresale\env\Scripts\python.exe
 from django.core import management
 
 if __name__ == "__main__":

@@ -25,8 +25,8 @@ SECRET_KEY = '95nt%mqv*ampzrah4dv9(86wjuj!0q_5u*usnr!@859blog*c0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ 
+ALLOWED_HOSTS = ['megaresale.com', 'localhost', '127.0.0.1']
 
 # Application definition
 
@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     'fontawesome_5',
     'django_forms_bootstrap',
     'crispy_forms',
-    #'social_django',
+    'social_django',
+    'django_extensions',
 
 
 ]
@@ -163,4 +164,14 @@ FONTAWESOME_5_PREFIX = 'fa'
 AUTHENTICATION_BACKENDS = [
             'django.contrib.auth.backends.ModelBackend',
             'accounts.authentication.EmailAuthBackend',
+            'social_core.backends.facebook.FacebookOAuth2',
+            'social_core.backends.google.GoogleOAuth2',
+            
 ]
+
+SOCIAL_AUTH_FACEBOOK_KEY = '981978778884088' # Facebook App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = '333b7d3a40ce7f61d6082667b65d3a1e' # Facebook App Secret
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '86440170373-bqfds8l11v3l4u6v9ofvc4sblj10h3jd.apps.googleusercontent.com' # Google Consumer Key
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '_vHgrATgVp6cjSzzUSXmHFbp' # Google Consumer Secret

@@ -9,12 +9,13 @@
 	<div class="categories-section main-grid-border">
 		<div class="container">
 			<h2 class="head">Main Categories</h2>
-			{% for category in all_category.all %}
 
 			<div class="category-list">
 				<div id="parentVerticalTab">
+
 					<ul class="resp-tabs-list hor_1">
-						<li>{{category.name}}</li>
+						{% for c in category %}
+						<li>{{c}}</li>
 						{% endfor %}  
 						<a href="{% url 'products:product_list' %}">All Ads</a>
 					</ul>
@@ -26,15 +27,19 @@
 									<img src="{{image.image.url}}" title="image" alt="" />
 								</div>
 								<div class="category-info">
-									<h4>{{category.name}}</h4>
-									<span>{{productlist.categorylist}}</span>
+									{% for c in category %}
+									<h4>{{c}}</h4>
+									{% for l in categorylist %}
+									<span>{{l}}</span>
+									{% endfor %}
 									<a href="all-classifieds.html">View all Ads</a>
+									{% endfor %}
 								</div>
 								<div class="clearfix"></div>
 							</div>
 							<div class="sub-categories">
 								<ul>
-									<li><a href="{% url 'subcategory:product_list' %}">{{subcategory.sub_categoty_name}}</a></li>
+									<li><a href="#">{{subcategory.sub_category_name}}</a></li>
 									
 									<div class="clearfix"></div>
 								</ul>
