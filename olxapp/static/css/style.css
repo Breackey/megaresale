@@ -47,13 +47,13 @@ label{
 	margin:0;
 }
 .banner {
-	background:url('../images/banner.jpg') no-repeat 0px 0px;
+	background:url('../images/resale_1.jpg') no-repeat 0px 0px;
 	background-size:cover;
 	min-height:240px;
 	padding:45px 0 0 0;
 }
 .main-banner {
-	background:url('../images/banner.jpg') no-repeat 0px 0px;
+	background:url('../images/resale_1.jpg') no-repeat 0px 0px;
 	background-size:cover;
 	min-height:400px;
 	padding:100px 0 0 0;
@@ -346,6 +346,15 @@ border:1px solid #e7eaed;
 	-moz-transition:0.5s all;
 	-o-transition:0.5s all;
 	-ms-transition:0.5s all;
+}
+.focus-image i.fa- {
+	background:#2d29ff;
+}
+.focus-image i.fa-T-Shirt {
+	background:hsl(69, 100%, 58%);
+}
+.focus-image i.fa-laptop {
+	background:#3da746;
 }
 .focus-image i.fa-laptop {
 	background:#ff9e29;

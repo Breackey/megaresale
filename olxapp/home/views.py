@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from product.models import Product , ProductImages , Category, SubCategory
+from product.models import Product , ProductImages , Category
 from django.db.models import Count
 from django.shortcuts import get_object_or_404
 # Create your views here.
@@ -17,8 +17,7 @@ def home(request):
 def categories(request , category_slug=None):
     productlist = Product.objects.all()
     categorylist = Category.objects.annotate(total_products=Count('product'))
-    category = Category.objects.all() 
-    subcategory = SubCategory.objects.all() 
+    category = Category.objects.all()  
     
     if category_slug :
         category = get_object_or_404(Category ,slug=category_slug)
@@ -26,7 +25,13 @@ def categories(request , category_slug=None):
     
 
     template = 'categories.html'
-    context = { 'product_list' : productlist , 'category_list' : categorylist ,'category' : category ,'subcategory' : subcategory}
+    context = { 'product_list' : productlist , 'category_list' : categorylist ,'category' : category}
 
     return render(request , template , context)
 
+def postad(request):
+ 
+    
+    template = 'post_ad.html'
+
+    return render(request , template)

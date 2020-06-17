@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 from django.utils.text import slugify
 from fontawesome_5.fields import IconField
+from mptt.fields import TreeForeignKey
+from mptt.models import MPTTModel
 
 
 # Create your models here.
@@ -20,7 +22,6 @@ class Product(models.Model):
     description = models.TextField(max_length=500)
     condition = models.CharField(max_length=100 , choices=CONDITION_TYPE)
     category = models.ForeignKey('Category' , on_delete=models.SET_NULL , null=True)
-    subcategory = models.ForeignKey('SubCategory' , on_delete=models.SET_NULL , null=True)
     brand = models.ForeignKey('Brand' , on_delete=models.SET_NULL , null=True)
     price = models.DecimalField(max_digits=10,decimal_places=5)
     image = models.ImageField(upload_to='main_product/' , blank=True , null=True)
@@ -38,8 +39,6 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
-
-
 class ProductImages(models.Model):
     product = models.ForeignKey(Product , on_delete=models.CASCADE)
     image = models.ImageField(upload_to='products/' , blank=True , null=True)
@@ -51,14 +50,11 @@ class ProductImages(models.Model):
         verbose_name = 'Product Image'
         verbose_name_plural = 'Product Images'
 
-
-
-
-class Category(models.Model):
+class Category(MPTTModel):
     ## for product category
+    parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True,related_name='children')
     category_name = models.CharField(max_length=50)
     image = models.ImageField(upload_to='category/' , blank=True , null=True)
-    icon = IconField()
     slug = models.SlugField(blank=True  , null=True)
 
 
@@ -67,32 +63,17 @@ class Category(models.Model):
             self.slug = slugify(self.category_name)
         super(Category , self).save(*args , **kwargs)
 
+    class MPTTMeta:
+        order_insertion_by = ['category_name']
+        
     class Meta:
-        verbose_name = 'category'
-        verbose_name_plural = 'categories'
+            verbose_name = 'Category'
+            verbose_name_plural = 'Categories'
 
     def __str__(self):
         return self.category_name
 
 
-class SubCategory(models.Model):
-    ## for product category
-    category = models.ForeignKey('Category' , on_delete=models.SET_NULL , null=True)
-    sub_category_name = models.CharField(max_length=50)
-    slug = models.SlugField(blank=True  , null=True)
-
-
-    def save(self , *args , **kwargs):
-        if not self.slug and self.sub_category_name :
-            self.slug = slugify(self.sub_category_name)
-        super(SubCategory , self).save(*args , **kwargs)
-
-    class Meta:
-        verbose_name = 'sub category'
-        verbose_name_plural = 'sub categories'
-
-    def __str__(self):
-        return self.sub_category_name
 
 class Brand(models.Model):
     ## for product brand
